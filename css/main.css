@@ -1,0 +1,556 @@
+@import url(http://fonts.googleapis.com/css?family=Carrois+Gothic:400); 
+
+
+html {
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: white;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  font-family: Arial;
+
+  -moz-user-select     : none;
+  -khtml-user-select   : none;
+  -webkit-user-select  : none;
+  -o-user-select       : none;
+  user-select: none;
+}
+
+div#sti_toolbar_bg {
+  background: #e8e8e8;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  position: fixed;
+}
+
+div.dialogDesc {
+  padding-left:0.5em;
+  line-height: 1;
+  padding-top: 2px;
+  !width:100%;
+  left:0;
+} 
+
+div.sti_form > div:first-of-type {
+  ! border-bottom: 1px dashed #e0e0e0;
+  display:table;
+  margin:0;
+  position: relative;
+  padding:2px;
+}
+
+div.sti_form > div:first-of-type > div {
+  display:inline;
+}
+
+div.sti_form  div.bar_qr {
+  position: absolute;
+  left: auto;
+  right: 0;
+  margin-top: -4px;
+  margin-right: -4px;
+}
+
+div.sti_form > div:first-of-type > div.fa-minus,
+div.sti_form > div:first-of-type > div.fa-reorder {
+  padding: 2px 2px 2px 4px;
+}
+
+div.sti_form div.bar_qr > div.fa-remove {
+  !position:absolute;
+  !right:0px;
+  !left: auto;
+  !display:inline;
+  padding: 4px 14px;
+  margin-right: -4px -4px;
+}
+
+div.sti_form div.bar_qr > div.fa-question {
+  !position:absolute;
+  !right:0px;
+  !left: auto;
+  padding: 4px 8px;
+  background: darkslateblue;
+  margin-top: 0px;
+}
+
+div.fa-question,
+div.fa-minus,
+div.fa-reorder,
+div.fa-remove {
+  margin-top: 2px;
+
+  !-moz-user-select     : none;
+  !-khtml-user-select   : none;
+  !-webkit-user-select  : none;
+  !-o-user-select       : none;
+  !user-select: none;
+}
+
+div.fa-remove {
+  !position: absolute;
+  !left: auto;
+  !right: 0.4em;
+  background: red;
+
+  !-moz-user-select     : none;
+  !-khtml-user-select   : none;
+  !-webkit-user-select  : none;
+  !-o-user-select       : none;
+  !user-select: none;
+}
+
+div.form_separator {
+  height: 0.4em;
+}
+
+div.form_body  {
+  display: table;
+  background: navajowhite;
+  padding: 0px 5px 4px 6px;
+  color: black;
+}
+
+line.gridline {
+  stroke: #c0c0c0;
+  stroke-width: 0.25;
+}
+
+line.gridline2 {
+  stroke: #d8d8d8;
+  stroke-width: 0.25;
+}
+
+/* the segment being drawn just now */
+line.draw {
+  stroke: red;
+  stroke-width: 2;
+  opacity: 0.5;
+}
+
+rect.node, ellipse.node, circle.node,
+rect.nodeDeflected, ellipse.nodeDeflected, circle.nodeDeflected {
+  stroke: none;
+  stroke: steelblue;
+  stroke-width: 1;
+  fill: none;
+  fill: #ccc;
+}
+
+rect.node, ellipse.node, circle.node {
+  opacity: 0.3;
+}
+
+rect.nodeDummy, ellipse.nodeDummy, circle.nodeDummy {
+  fill: white;
+  opacity: 0.01;
+}
+
+rect.nodeDeflected, ellipse.nodeDeflected, circle.nodeDeflected {
+  fill: none;
+  stroke: lightsteelblue;
+  opacity: 1;
+}
+
+line.deflected {
+  stroke: lightskyblue;
+  stroke-width: 2.5;
+}
+
+line.shearShape {
+  stroke: orchid;
+  stroke-width: 2;
+}
+
+line.normalShape {
+  stroke: lightseagreen;
+  stroke-width: 2;
+}
+
+line.momentShape {
+  stroke: gray;
+  stroke-width: 2;
+}
+
+line.ordinate {
+  stroke-width: 1.5;
+}
+
+rect.node_focused, ellipse.node_focused, circle.node_focused,
+rect.nodeBeingDrawn, ellipse.nodeBeingDrawn, circle.nodeBeingDrawn {
+  fill: #f44;
+  stroke: #f00;
+  stroke-width: 0;
+  opacity: 1;
+}
+
+ellipse#cursor_place_load, circle#cursor_place_load {
+  stroke: red;
+  stroke-width: 1;
+  fill: red;
+
+  // stroke: none;
+  // fill: none;
+}
+
+rect.pointOnDiagram, ellipse.pointOnDiagram, circle.pointOnDiagram {
+  fill: white;
+  stroke: white;
+  opacity: .1;
+  // cursor: none; // problems on Mac OS
+}
+
+rect.pointOnDiagram.pointOnDiagramHighlighted, ellipse.pointOnDiagram.pointOnDiagramHighlighted, circle.pointOnDiagram.pointOnDiagramHighlighted {
+  cursor: none; // problems on Mac OS
+}
+
+rect.pointOnDiagramHighlighted, ellipse.pointOnDiagramHighlighted, circle.pointOnDiagramHighlighted {
+  fill: gray;
+  stroke: none;
+  opacity: .4;
+}
+
+rect.aux {
+  stroke: red;
+  stroke-width: 2;
+  stroke-dasharray: 5,5;
+  fill: #f0f0f0;
+  opacity: 0.5;
+}
+
+// circle.aux1, rect.aux1 {
+//   stroke: red;
+//   stroke-width: 1;
+//   fill: none;
+//   opacity: 0.5;
+// }
+
+line.dummySpan {
+  stroke: white;
+  stroke-width: 12;
+  stroke-opacity: 0.1;
+}
+
+line.span {
+  stroke: black;
+  stroke-width: 3;
+  stroke-linejoin: miter; /* this works likely for polyline */
+}
+
+line.bottomSpan {
+  stroke: lightgray;
+  stroke-width: 1;
+  stroke-dasharray: 10,10;
+}
+
+line.span_sectionHighlighted {
+  stroke: #d00000;
+}
+
+line.span_focused {
+  stroke: red;
+}
+
+line.span_selected {
+  stroke: darkorange;
+}
+
+text.coordDrawn, text.descPlacingLoad {
+  stroke: none;
+  fill: #a00000;
+  font-size: 14px;
+  font-family: Carrois Gothic, Calibri, Geneva;
+}
+
+text.descPlacingLoad,
+div#sti_toolbar {
+  user-select          : none;
+  -moz-user-select     : none;
+  -khtml-user-select   : none;
+  -webkit-user-select  : none;
+  -o-user-select       : none;
+}
+
+text.coordMain {
+  stroke: none;
+  fill: black;
+  font-size: 10px;
+  font-family: Carrois Gothic, Calibri,Geneva;
+
+  !user-select          : none;
+  !-moz-user-select     : none;
+  !-khtml-user-select   : none;
+  !-webkit-user-select  : none;
+  !-o-user-select       : none;
+}
+
+text.coordMainOdd {
+  fill: #aaa;
+}
+
+text.reaction_F_Desc,
+text.reaction_M_Desc,
+text.momentDesc,
+text.descDiagram,
+text.descDeform,
+text.forceDesc {
+  font-size: 13pt;
+  fill: blue;
+  font-family: Carrois Gothic, Calibri,Gill Sans,Helvetica,Geneva;
+  margin:0;
+  padding:0;
+  line-height:normal;
+
+  !user-select          : none;
+  !-moz-user-select     : none;
+  !-khtml-user-select   : none;
+  !-webkit-user-select  : none;
+  !-o-user-select       : none;
+}
+
+text.reaction_M_Desc,
+text.reaction_F_Desc {
+  fill: red;
+}
+
+text.descDiagram {
+  font-size: 11pt;
+  fill: dimgray;
+}
+
+#sti_V text.descDiagram {
+  fill: darkmagenta;
+}
+
+#sti_N text.descDiagram {
+  fill: darkcyan;
+}
+
+rect.descDiagram {
+  fill: yellow;
+  stroke: yellow;
+  fill: white;
+  !stroke: red;
+  !fill: yellow;
+  stroke-width:0;
+  opacity: .75;
+  !opacity: .85;
+}
+
+text.descDeform {
+  font-size: 11pt;
+  fill: gray;
+}
+
+.legend_fixed {
+  z-index: -1;
+  position: fixed;
+  top: 0px;
+  -webkit-backface-visibility: hidden;
+}
+
+.snap_rect {
+  stroke: darkorange;
+  fill: white;
+  stroke-width: 2;
+}
+
+.snap_rect_dragged {
+  stroke: blue;
+}
+
+.snap_rect_focused {
+  stroke: red;
+  fill: red;
+}
+
+rect.tmp_test {
+  stroke: red;
+  stroke-width: 0.5;
+  fill: none;
+  opacity: 0.5;
+}
+
+.support {
+  stroke: black;
+  !fill: black;
+  fill: gold;
+  stroke-width: 2;
+}
+
+.load_force_temp,
+.load_force_react,
+.load_force_uniform,
+.load_force,
+.load_moment_centerline {
+  stroke: blue;
+  stroke-width: 3;
+  fill: none;
+}
+
+.load_moment_centerline {
+  stroke-width: 3;
+}
+
+.load_force_uniform {
+  stroke-width: 1.65;
+}
+
+.load_force_head_temp,
+.load_force_head {
+  fill: blue;
+  !stroke-width: 3;
+  !stroke: green;
+}
+
+.load_force_temp,
+.load_force_head_temp {
+  fill: red;
+  stroke: red;
+}
+
+.load_force_head_react,
+.load_force_react {
+  !fill: none;
+  stroke: red;
+  !stroke-dasharray: 8,4; // this rule is built within app since it depends on whether supports are shown or not
+}
+
+.load_force_head_react {
+  fill: red;
+  stroke-width: 0;
+}
+
+text.load_focused {
+  fill: darkorange;
+}
+
+polygon.load_focused {
+  fill: darkorange;
+  !stroke: darkorange;
+}
+
+path.load_focused,
+line.load_focused {
+  stroke: darkorange;
+}
+
+.hinge {
+  stroke: black;
+  fill: white;
+  stroke-width: 1;
+}
+
+#menuTools li a,
+#sti_toolbar li:not(.disabled) a {
+  cursor: pointer;
+}
+
+#sti_toolbar li.disabled a {
+  cursor: default;
+}
+
+#sti_toolbar li {
+  float: left;
+  display: inline;
+}
+
+.hide {
+  display: none;
+}
+
+#menuTools .padding8,
+#sti_toolbar_hidden .padding8,
+#sti_toolbar .padding8 {
+  padding: 4px 8px;
+}
+
+#menuTools .padding6,
+#sti_toolbar_hidden .padding6,
+#sti_toolbar .padding6 {
+  padding: 4px 6px;
+}
+
+#menuTools .padding4,
+#sti_toolbar_hidden .padding4,
+#sti_toolbar .padding4 {
+  padding: 2px 4px;
+}
+
+#menuTools .padding2,
+#sti_toolbar_hidden .padding2,
+#sti_toolbar .padding2 {
+  padding: 1px 2px;
+}
+
+#menuTools .padding0,
+#sti_toolbar_hidden .padding0,
+#sti_toolbar .padding0 {
+  padding: 0px 0px;
+}
+
+div#credit > div {
+  background: white;
+  border-top: .5em solid white;
+  border-bottom: .5em solid white;
+  border-left: 1em solid white;
+  border-right: 1em solid white;
+  display: inline;
+}
+
+div#credit > div > div {
+  display: inline;
+}
+
+div#credit {
+  margin:auto;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom: 2.5em;
+  display: none;
+  text-align: center;
+  color: darkgray;
+  height: 0;
+}
+
+.optional {
+  color: lightgray;
+}
+
+#form_material .optional {
+  color: darkgray;
+}
+
+#form_material div.label_envelope {
+  height:16px;
+  margin-bottom: -1px;
+}
+
+#form_help h1 {
+  font-size: 1.5em;
+  margin-top: .75em;
+}
+
+#form_help h2 {
+  font-size: 1.25em;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+#form_help ul {
+  list-style-position: inside;
+}
+
+#form_help li {
+  padding: 0.2em 0em 0.2em 1em;
+  line-height:1.3em;
+}
+
+#form_help p {
+  margin: 0.4em 0 0.4em 0;
+}
+
